@@ -9,6 +9,8 @@ import Rank from "./components/Rank/Rank.js";
 import FaceRecognition from "./components/FaceRecognition/FaceRecognition.js";
 import "./App.css";
 
+const endpointUrl = 'https://obscure-escarpment-84696.herokuapp.com/'
+
 const particlesOptions = {
   particles: {
     number: {
@@ -79,7 +81,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-    fetch("http://localhost:3000/imageUrl", {
+    fetch(`${endpointUrl}/imageUrl`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -89,7 +91,8 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if (response) {
-          fetch("http://localhost:3000/image", {
+          this.displayFaceBox(this.calculateFaceLocation(response));
+          fetch(`${endpointUrl}/image`, {
             method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -102,7 +105,6 @@ class App extends Component {
             })
             .catch(console.log);
         }
-        this.displayFaceBox(this.calculateFaceLocation(response));
       })
       .catch(err => console.log(err));
   };
