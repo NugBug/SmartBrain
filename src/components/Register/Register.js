@@ -1,6 +1,6 @@
 import React from "react";
 
-const endpointUrl = 'https://obscure-escarpment-84696.herokuapp.com/';
+const endpointUrl = 'https://obscure-escarpment-84696.herokuapp.com';
 
 class Register extends React.Component {
   constructor(props) {

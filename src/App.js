@@ -9,7 +9,7 @@ import Rank from "./components/Rank/Rank.js";
 import FaceRecognition from "./components/FaceRecognition/FaceRecognition.js";
 import "./App.css";
 
-const endpointUrl = 'https://obscure-escarpment-84696.herokuapp.com/'
+const endpointUrl = 'https://obscure-escarpment-84696.herokuapp.com'
 
 const particlesOptions = {
   particles: {
